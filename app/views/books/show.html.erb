@@ -1,0 +1,61 @@
+  <div class="p-3 mb-2">
+  <div class="card" align="center">
+  <div class="card-body">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Page Count:</strong>
+  <%= @book.pagecount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @book.status %>
+</p>
+
+<p>
+  <strong>Tradeable Status:</strong>
+  <% if @book.tradeablestatus %>
+  <%= link_to '<button type="button">Available</button>'.html_safe, new_book_tradeable_path(@book.id) %>
+  <% end %>
+</p>
+</div>
+</div>
+  <div class="card" align="center">
+  <div class="card-body">
+<div id="flash_notice"></div>
+<h2>Comments</h2>
+<%= render @book.comment.approved %>
+<div class='comments'></div>
+
+<% if @book.comment.waiting_for_approval(current_user.id).exists? %>
+<strong>Waiting for approval</strong>
+<%= render @book.comment.waiting_for_approval(current_user.id) %>
+<% end %>
+
+
+</div>
+</div>
+
+  <div class="card" align="center">
+  <div class="card-body">
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+
+<%= link_to 'Back', books_path %>
+
+</div>
+</div>
+</div>

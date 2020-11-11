@@ -1,0 +1,26 @@
+<div class="p-3 mb-2">
+<div class="card">
+<div class="card-body" align="center">
+<div class="card-body">
+<table>
+
+  <thead>
+    <tr align="center">
+      <th>Username</th>
+      <th>User E-mail</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% @users.each do |user| %>
+      <tr>
+        <td align="center"><%= link_to user.username, user_path(user.id) %></td>
+        <td align="center"><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="p-3 mb-2">
+<div class="card">
+<div class="card-body" align="center">
+<div class="card">
+<div class="card-body">
+<h1>Welcome to the Webook</h1>
+<p>Webook is a book sharing platform.
+<% if !current_user %>
+Please login for share and see books.</p>
+<% end %>
+<h2> Shareable Books </h2>
+<table class="table table-hover">
+  <thead>
+    <tr align="center">
+      <th>Title</th>
+      <th>Author</th>
+      <% if current_user %>
+      <th >User</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @avaiblebooks.each do |book| %>
+      <tr>
+        <td align="center"><%= book.title %></td>
+        <td align="center"><%= book.author %></td>
+        <% if current_user %>
+        <td align="center"><button type="button" class="btn btn-light"><%= link_to book.user.username, user_path(book.user.id) %></button></td>
+        <td ><button type="button" class="btn btn-outline-primary"><%= link_to 'Show', book %></button></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>

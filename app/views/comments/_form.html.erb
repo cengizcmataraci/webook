@@ -1,0 +1,17 @@
+<div class="card" class="p-3 mb-2">
+  <div class="card-body" align="center">
+<%= form_with(model: [ @book, @book.comment.build ], local: false) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>
+</div>

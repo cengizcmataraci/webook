@@ -1,0 +1,25 @@
+<div class="p-3 mb-2">
+<div class="card">
+<div class="card-body" align="center">
+<div class="card">
+<div class="card-body">
+<p>
+  <strong>Book Title:</strong>
+  <%= @comment.book.title %>
+</p>
+
+<p>
+  <strong>Comment Title:</strong>
+  <%= @comment.title %>
+</p>
+
+<p>
+  <strong>Comment Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<%= form_for([@book, @comment]) do |list| %>   <%= list.submit "Approve" %>   <% end %>
+</div>
+</div>
+</div>
+</div>

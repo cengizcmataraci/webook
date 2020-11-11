@@ -1,0 +1,14 @@
+<div class="p-3 mb-2">
+<div class="card">
+<div class="card-body" align="center">
+<div class="card-body">
+<p>The book titled <%= @book.title %> was shared by <%= @book.user.username %>.</p>
+<p>Which book are you offering?</p>
+<%= form_with(model: [ @book, @book.tradeables.build ], local: true) do |form| %>
+<%= form.select(:offered_book_id, @cbook.map{|book| [book.title, book.id]})%><br><br>
+<%= button_to "Send Request", book_path(@book), method: :save %>
+<% end %>
+</div>
+</div>
+</div>
+</div>

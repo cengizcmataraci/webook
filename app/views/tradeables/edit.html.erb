@@ -1,0 +1,25 @@
+<div class="p-3 mb-2">
+<div class="card">
+<div class="card-body" align="center">
+<div class="card-body">
+<p>
+  <strong>Book Title:</strong>
+  <%= @tradeable.book.title %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @tradeable.user.username %>
+</p>
+<p>
+  <strong>Offered Book:</strong>
+  <%= @book.title %>
+</p>
+
+<%= form_with(model: [@book, @tradeable], local: true) do |form| %>
+<%= form.submit :name => 'answer', :value => 'Approve' %>
+<%= form.submit :name => 'answer', :value => 'Deny' %>
+<% end %>
+</div>
+</div>
+</div>
+</div>
