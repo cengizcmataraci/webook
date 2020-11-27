@@ -1,6 +1,7 @@
 class TradeablesController < ApplicationController
   before_action :check_trades, only: [:new, :create]
   before_action :check_same, only: [:new]
+  before_action :set_trade, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
   def new
     @tradeables = Tradeable.new
@@ -40,7 +41,20 @@ class TradeablesController < ApplicationController
     end
   end
 
+  def destroy
+    @tradeable = Tradeable.find(params[:id])
+    @tradeable.destroy
+    respond_to do |format|
+      format.html { redirect_to books_url, notice: 'Trade was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
+
+  def set_trade
+    @tradeable = Tradeable.find(params[:id])
+  end
 
   def check_same
     if current_user == Book.find(params[:book_id]).user
@@ -55,7 +69,6 @@ class TradeablesController < ApplicationController
       redirect_to book_path(params[:book_id]), :notice => "You already have a request about this book."
     end
   end
-
 
   def tradeables_params
     params.require(:tradeable).merge(user_id: current_user.id).permit(:offered_book_id, :user_id)

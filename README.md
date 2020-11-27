@@ -5,6 +5,12 @@
 
 Webook is a book exchange platform. This project was done for Ruby on Rails Bootcamp assignment.
 
+## Notes
+
+* I change the main concept a little bit. Now if there have not a request, then there have not a notification in Dashboard.
+
+* The trade request can be canceled.
+
 ## Installation
 
 Check your Ruby version first.

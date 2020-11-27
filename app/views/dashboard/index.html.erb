@@ -82,7 +82,11 @@
     <% if @books.exists? %>
       <% @books.each do |book| %>
         <% book.comment.each do |comment| %>
+        <% if !book.comment.approved %>
         <p><%= comment.user.username %> wrote a comment your <%= comment.book.title %> book. <%= link_to 'Click here to accept it.', edit_book_comment_path(book, comment) %></p>
+        <% else %>
+        <p> You don't have any waiting for approve </p>
+        <% end %>
     <% end %>
   <% end %>
   <% else %>
@@ -116,6 +120,9 @@
         <td>                   </td>
         <td align="center"><%= trade.book.user.username %></td>
         <td align="center"><%= trade.tradestatus %></td>
+        <% if trade.tradestatus == 'waiting' %>
+        <td><button type="button" class="btn btn-outline-danger"><%= link_to 'Cancel', [trade.book, trade], :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <% end %>
       </tr>
     <% end %>
     <% end %>
@@ -127,11 +134,13 @@
 <% if @books.exists? %>
 <% @books.each do |book| %>
         <% book.tradeables.each do |coming| %>
+        <% if coming.tradestatus == 'waiting' %>
         <p><%= coming.user.username %> has submitted a request to the book <%= coming.book.title %> <%= link_to 'Click here to take action.', edit_book_tradeable_path(book, coming) %></p>
+        <% else %>
+        <p>No request has been received for any of your books.</p>
+        <% end %>
     <% end %>
   <% end %>
-  <% else %>
-  <p>No request has been received for any of your books.</p>
   <% end %>
   </div>
 </div>
