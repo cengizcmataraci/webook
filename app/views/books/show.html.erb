@@ -29,6 +29,12 @@
   <%= link_to '<button type="button">Available</button>'.html_safe, new_book_tradeable_path(@book.id) %>
   <% end %>
 </p>
+
+<% unless current_user.favorite_books.exists?(id: @book.id) %>
+<%= link_to '<button type="button">Add to favorites</button>'.html_safe, favorite_books_path(book_id: @book), method: :post %>
+<% else %>
+<%= link_to '<button type="button">Remove from favorites</button>'.html_safe, favorite_book_path(@book), method: :delete %>
+<% end %>
 </div>
 </div>
   <div class="card" align="center">

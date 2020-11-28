@@ -5,6 +5,17 @@
 <h4>Username: <%= @user.username %></h4>
 <h4>User email: <%= @user.email%></h4><br>
 
+<h2>Favorited Books</h2>
+<% if !@favbooks.exists? %>
+<p>You don't have any favorite book.</p>
+<% else %>
+<%= @favbooks.count %>
+<% @favbooks.each do |fav| %>
+<p><%= fav.title %></p>
+<% end %>
+<% end %>
+<h2>Books</h2>
+
 <table class="table">
   <thead>
     <tr align="center">

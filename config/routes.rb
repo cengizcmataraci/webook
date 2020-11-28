@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'welcome/index'
   get 'users/profile'
+
+  resources :favorite_books, only: [:create, :show, :destroy]
 end

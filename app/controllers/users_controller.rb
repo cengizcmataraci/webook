@@ -3,9 +3,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def show
   @user = User.find_by_id(params[:id])
   @avaiblebooks = @user.books.where(status: true)
+  @favbooks = current_user.favorite_books
   end
 end
