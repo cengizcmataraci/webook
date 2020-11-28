@@ -45,7 +45,7 @@ class TradeablesController < ApplicationController
     @tradeable = Tradeable.find(params[:id])
     @tradeable.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Trade was successfully destroyed.' }
+      format.html { redirect_to books_url, notice: 'Trade was successfully cancelled.' }
       format.json { head :no_content }
     end
   end

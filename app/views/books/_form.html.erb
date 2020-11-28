@@ -12,35 +12,18 @@
       </ul>
     </div>
   <% end %>
-  <p> If you want your book to be available, tick the status and if you want your book to be tradeable, tick the tradeablestatus. </p>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pagecount %>
-    <%= form.number_field :pagecount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
-  </div>
-
-    <div class="field">
-    <%= form.label :tradeablestatus %>
-    <%= form.check_box :tradeablestatus %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p> If you want your book to be available, choose Yes on the status and if you want your book to be tradeable, again, choose Yes on the tradeablestatus. </p>
 <% end %>
+
+
+<%= simple_form_for @book do |f| %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :pagecount %>
+  <%= f.input :status,   as: :radio_buttons %>
+  <%= f.input :tradeablestatus,   as: :radio_buttons %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
 </div>
 </div>

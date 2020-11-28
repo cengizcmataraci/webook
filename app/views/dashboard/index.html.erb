@@ -89,8 +89,6 @@
         <% end %>
     <% end %>
   <% end %>
-  <% else %>
-  <p> You don't have any waiting for approve request.
 <% end %>
 </div>
 </div>
@@ -131,17 +129,19 @@
 <div class="card">
   <div class="card-body">
 <h4>Coming Requests</h4><br>
-<% if @books.exists? %>
+<% if !@books.exists? %>
+<p>No request has been received for any of your books.</p>
+<% else %>
 <% @books.each do |book| %>
         <% book.tradeables.each do |coming| %>
         <% if coming.tradestatus == 'waiting' %>
         <p><%= coming.user.username %> has submitted a request to the book <%= coming.book.title %> <%= link_to 'Click here to take action.', edit_book_tradeable_path(book, coming) %></p>
         <% else %>
-        <p>No request has been received for any of your books.</p>
+        <p>All book requests were answered.</p>
         <% end %>
     <% end %>
   <% end %>
-  <% end %>
+<% end %>
   </div>
 </div>
 </div>
