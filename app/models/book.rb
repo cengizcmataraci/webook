@@ -6,4 +6,8 @@ class Book < ApplicationRecord
     has_many :tradeables
     has_many :favorites, as: :favorited
     scope :tradeablestat, -> {where(tradeablestatus: true)}
+
+    def bookname
+      self.bookname = self.title.split("").map(&:capitalize).split(" ").map(&:first).join()
+    end
 end

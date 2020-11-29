@@ -13,6 +13,8 @@ Webook is a book exchange platform. This project was done for Ruby on Rails Boot
 
 * A book can be added to favorites. These favorites can be shown on profile. I used a new model for favorites and took advantage of polymorphism. In this way, the user's favorites can be created over the books. I also used the join table to sort the favorites of the books.
 
+* I solved the problem of having the same user's favorites on every user page by synchronizing the user id to the id of the current user.
+
 ## Installation
 
 Check your Ruby version first.

@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   @user = User.find_by_id(params[:id])
   @avaiblebooks = @user.books.where(status: true)
   @favbooks = current_user.favorite_books
-  @fav = Favorite.find_by_id(params[:id])
+  @fav = Favorite.where(user_id: params[:id])
   end
 end
