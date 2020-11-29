@@ -9,13 +9,25 @@
 <% if !@favbooks.exists? %>
 <p>You don't have any favorite book.</p>
 <% else %>
-<%= @favbooks.count %>
-<% @favbooks.each do |fav| %>
-<p><%= fav.title %></p>
+<table class="table table-hover">
+  <thead>
+    <tr align="center">
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favbooks.each do |fav| %>
+      <tr>
+        <td align="center"><%= fav.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
-<% end %>
-<h2>Books</h2>
 
+
+
+<h2>Books</h2>
 <table class="table">
   <thead>
     <tr align="center">
@@ -39,6 +51,6 @@
     <% end %>
   </tbody>
 </table>
-</div>
-</div>
+    </div>
+  </div>
 </div>

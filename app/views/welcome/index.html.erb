@@ -32,6 +32,28 @@ Please login for share and see books.</p>
     <% end %>
   </tbody>
 </table>
+
+<h2>Most Popular Books</h2>
+<table class="table table-hover">
+  <thead>
+    <tr align="center">
+      <th>Title</th>
+      <th>Number of Favorites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favsize.each do |book| %>
+      <tr>
+        <td align="center"><%= book.title %></td>
+        <td align="center"><%= book.favorites.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<p>Toplam Favori Sayısı</p>
+<%= @favorite.count %>
 </div>
 </div>
 </div>

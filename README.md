@@ -11,6 +11,8 @@ Webook is a book exchange platform. This project was done for Ruby on Rails Boot
 
 * The trade request can be canceled.
 
+* Bir kitap favorilere eklenebilir. Bu favoriler profilde gösterilebilir. Favoriler için yeni bir model kullandım ve polymorphismden yararlandım. Bu sayede kullanıcının kitaplar üzerinden favorileri oluşabiliyor. Kitapların favorilerini sıralamak için de join tabledan yararlandım.
+
 ## Installation
 
 Check your Ruby version first.
