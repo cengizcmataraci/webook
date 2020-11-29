@@ -9,9 +9,9 @@ Webook is a book exchange platform. This project was done for Ruby on Rails Boot
 
 * I change the main concept a little bit. Now if there have not a request, then there have not a notification in Dashboard.
 
-* The trade request can be canceled.
+* The trade request can be canceled. Since nested resources are used here, I have specified a two parameter path in destroy.
 
-* Bir kitap favorilere eklenebilir. Bu favoriler profilde gösterilebilir. Favoriler için yeni bir model kullandım ve polymorphismden yararlandım. Bu sayede kullanıcının kitaplar üzerinden favorileri oluşabiliyor. Kitapların favorilerini sıralamak için de join tabledan yararlandım.
+* A book can be added to favorites. These favorites can be shown on profile. I used a new model for favorites and took advantage of polymorphism. In this way, the user's favorites can be created over the books. I also used the join table to sort the favorites of the books.
 
 ## Installation
 
