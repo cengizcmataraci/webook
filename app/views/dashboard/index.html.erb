@@ -83,16 +83,16 @@
     <div class="card-header">
 <h4> Waiting for Approve </h4><br>
 </div>
-    <% if @books.exists? %>
-      <% @books.each do |book| %>
-        <% book.comment.each do |comment| %>
-        <% if book.comment.unapproved %>
-        <p><%= comment.user.username %> wrote a comment your <%= comment.book.title %> book. <%= link_to 'Click here to accept it.', edit_book_comment_path(book, comment) %></p>
+    <% if @bookcomment.exists? %>
+      <% @bookcomment.each do |comment| %>
+        <% if comment.status == false %>
+        <p><%= comment.user.username %> wrote a comment your <%= comment.book.title %> book. <%= link_to 'Click here to accept it.', edit_book_comment_path(comment.book, comment) %></p>
         <% else %>
-        <p>There's no waiting for approve here.</p>
+        <p><%= comment.user.username %>'s comment is approved from <%= comment.book.title %>.</p>
         <% end %>
-    <% end %>
   <% end %>
+  <% else %>
+  <p>You don't have to waiting for approve.</p>
 <% end %>
   </div>
 </div>
