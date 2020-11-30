@@ -15,6 +15,8 @@ Webook is a book exchange platform. This project was done for Ruby on Rails Boot
 
 * I solved the problem of having the same user's favorites on every user page by synchronizing the user id to the id of the current user.
 
+* I fixed an issue where the post not changed after it was approved in Waiting for Approve.
+
 ## Installation
 
 Check your Ruby version first.
