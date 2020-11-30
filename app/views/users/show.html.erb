@@ -1,11 +1,16 @@
 <div class="p-3 mb-2">
-<div class="card" align="center">
-  <div class="card-body">
+  <div class="card" align="center">
+    <div class="card-body">
 <h1> User Profile </h1>
 <h4>Username: <%= @user.username %></h4>
 <h4>User email: <%= @user.email%></h4><br>
-
+<div class="container">
+  <div class="row">
+    <div class="col col-md-4">
+      <div class="card h-100">
+        <div class="card-header">
 <h2>Favorited Books</h2>
+</div>
 <% if !@fav.exists? %>
 <p>You don't have any favorite book.</p>
 <% else %>
@@ -24,10 +29,13 @@
   </tbody>
 </table>
 <% end %>
-
-
-
+</div>
+</div>
+<div class="col col-md-8">
+  <div class="card h-100">
+    <div class="card-header">
 <h2>Books</h2>
+</div>
 <table class="table">
   <thead>
     <tr align="center">
@@ -51,6 +59,10 @@
     <% end %>
   </tbody>
 </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

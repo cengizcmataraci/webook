@@ -1,11 +1,10 @@
 <div class="p-3 mb-2">
-<div class="card">
-<div class="card-body" align="center">
-<div class="card">
-<div class="card-body">
-<div id="notice"><%= notice %></div>
+  <div class="card">
+    <div class="card-body" align="center">
+      <div class="card">
+        <div class="card-body">
+          <div id="notice"><%= notice %></div>
 <h1> Dashboard </h1>
-
 <h2>Books</h2>
 
 <table class="table table-hover">
@@ -38,15 +37,18 @@
   </tbody>
 </table>
 
-
 <%= link_to 'New Book', new_book_path %>
 </div>
 </div>
+<br>
 
-<div class="card" align="center">
-  <div class="card-body">
-<h2> Comments </h2>
+<div class="container">
+  <div class="row">
+    <div class="col col-md-7">
+      <div class="card h-100">
+        <div class="card-header">
 <h4> Your Comments </h4>
+</div>
 <table class="table">
   <thead>
     <% if !current_user.comment.any? %>
@@ -73,30 +75,35 @@
     <% end %>
   </tbody>
 </table>
-</div>
+  </div>
 </div>
 
-<div class="card">
-  <div class="card-body">
+<div class="col col-md-5">
+  <div class="card">
+    <div class="card-header">
 <h4> Waiting for Approve </h4><br>
+</div>
     <% if @books.exists? %>
       <% @books.each do |book| %>
         <% book.comment.each do |comment| %>
-        <% if !book.comment.approved %>
+        <% if book.comment.unapproved %>
         <p><%= comment.user.username %> wrote a comment your <%= comment.book.title %> book. <%= link_to 'Click here to accept it.', edit_book_comment_path(book, comment) %></p>
         <% else %>
-        <p> You don't have any waiting for approve </p>
+        <p>There's no waiting for approve here.</p>
         <% end %>
     <% end %>
   <% end %>
 <% end %>
-</div>
+  </div>
 </div>
 
+<br>
 
-<div class="card">
-  <div class="card-body">
+<div class="col col-md-7">
+  <div class="card h-100">
+    <div class="card-header">
 <h4>Book Request List</h4>
+</div>
 <table class="table table-hover">
   <thead>
     <% if !current_user.tradeables.any? %>
@@ -126,9 +133,14 @@
     <% end %>
   </tbody>
 </table>
-<div class="card">
-  <div class="card-body">
+  </div>
+</div>
+
+<div class="col col-md-5">
+  <div class="card">
+    <div class="card-header">
 <h4>Coming Requests</h4><br>
+</div>
 <% if !@books.exists? %>
 <p>No request has been received for any of your books.</p>
 <% else %>
@@ -137,15 +149,18 @@
         <% if coming.tradestatus == 'waiting' %>
         <p><%= coming.user.username %> has submitted a request to the book <%= coming.book.title %> <%= link_to 'Click here to take action.', edit_book_tradeable_path(book, coming) %></p>
         <% else %>
-        <p>All book requests were answered.</p>
+        <p>The request from <%= coming.user.username %> has been answered.</p>
         <% end %>
     <% end %>
   <% end %>
 <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>

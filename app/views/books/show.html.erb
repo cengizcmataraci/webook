@@ -1,6 +1,6 @@
-  <div class="p-3 mb-2">
+<div class="p-3 mb-2">
   <div class="card" align="center">
-  <div class="card-body">
+    <div class="card-body">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -37,7 +37,7 @@
 <% end %>
 </div>
 </div>
-  <div class="card" align="center">
+<div class="card" align="center">
   <div class="card-body">
 <div id="flash_notice"></div>
 <h2>Comments</h2>
@@ -45,15 +45,13 @@
 <div class='comments'></div>
 
 <% if @book.comment.waiting_for_approval(current_user.id).exists? %>
-<strong>Waiting for approval</strong>
-<%= render @book.comment.waiting_for_approval(current_user.id) %>
+  <strong>Waiting for approval</strong>
+  <%= render @book.comment.waiting_for_approval(current_user.id) %>
 <% end %>
-
-
-</div>
+  </div>
 </div>
 
-  <div class="card" align="center">
+<div class="card" align="center">
   <div class="card-body">
 
 <h2>Add a comment:</h2>
@@ -62,6 +60,6 @@
 
 <%= link_to 'Back', books_path %>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>

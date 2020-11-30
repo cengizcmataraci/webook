@@ -3,6 +3,7 @@ class TradeablesController < ApplicationController
   before_action :check_same, only: [:new]
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+
   def new
     @tradeables = Tradeable.new
     @book = Book.find(params[:book_id])
@@ -14,10 +15,10 @@ class TradeablesController < ApplicationController
     @tradeable = @book.tradeables.create(tradeables_params)
 
     if @book.save
-        redirect_to book_path(@book), :notice => "Your request has been sent to the user."
-      else
-        render 'new'
-      end
+      redirect_to book_path(@book), :notice => 'Your request has been sent to the user.'
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -66,7 +67,7 @@ class TradeablesController < ApplicationController
     @tradeable = Tradeable.where(book_id: params[:book_id]).first
 
     if @tradeable
-      redirect_to book_path(params[:book_id]), :notice => "You already have a request about this book."
+      redirect_to book_path(params[:book_id]), :notice => 'You already have a request about this book.'
     end
   end
 
